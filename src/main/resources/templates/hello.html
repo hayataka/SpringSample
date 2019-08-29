@@ -6,6 +6,10 @@
 </head>
 <body>
 	<h1>Hello World</h1>
+	<form action="/hello" method="post">
+		サーバに送信：<input type="text" name="text1" th:value="${text1_value}" />
+		<input type="submit" value="クリック" />
+	</form>
 
 </body>
 
