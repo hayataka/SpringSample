@@ -13,12 +13,12 @@ import lombok.extern.slf4j.Slf4j;
 @Component
 public class LogAspect {
 
-	@Before("execution( * com.example.demo.login.controller.LoginController.getLogin(..))")
+	@Before("execution( * *..*.*Controller.*(..))")
 	public void startLog(JoinPoint jp) {
 		log.debug("メソッド開始：{}", jp.getSignature());
 	}
-	@After("execution( * com.example.demo.login.controller.LoginController.getLogin(..))")
+	@After("execution( * *..*.*Controller.*(..))")
 	public void endLog(JoinPoint jp) {
-		log.debug("メソッド終了:{}", jp.getSignature());
+		log.debug("メソッド終了：{}", jp.getSignature());
 	}
 }
