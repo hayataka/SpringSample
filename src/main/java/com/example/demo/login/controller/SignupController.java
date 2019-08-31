@@ -14,6 +14,7 @@ import com.example.demo.login.domain.model.SignupForm;
 
 import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @Controller
 public class SignupController {
 
@@ -38,8 +39,7 @@ public class SignupController {
 		if(bindingResult.hasErrors()) {
 			return getSignUp(form, model);
 		}
-		System.out.println(form);
-		
+		log.debug("form:{}", form);
 		return "redirect:/login";
 	}
 }
