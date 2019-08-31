@@ -32,7 +32,7 @@ public class SignupForm {
 	private Date birthday;
 	@Min(value=20, groups=ValidGroup2.class)
 	@Max(value=100, groups = ValidGroup2.class)
-	private int age;
+	private Integer age;
 	@AssertFalse(groups = ValidGroup2.class)
 	private boolean marriage;
 }

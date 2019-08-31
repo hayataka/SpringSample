@@ -11,7 +11,7 @@ public class User {
 	private String password;
 	private String userName;
 	private Date birthday;
-	private int age;
+	private Integer age;
 	private boolean marriage;
 	private String role;
 }
