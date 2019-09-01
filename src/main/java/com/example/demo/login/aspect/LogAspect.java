@@ -33,8 +33,9 @@ public class LogAspect {
 			log.debug("メソッド終了：{}", jp.getSignature());
 			return result;
 		} catch (Exception e) {
-			log.error("メソッド異常終了:{}", jp.getSignature());
-			log.error("エラーが発生しました", e);
+			// ErrorAspect作成したのでレベルを落とす
+			log.trace("メソッド異常終了:{}", jp.getSignature());
+			log.trace("エラーが発生しました", e);
 			throw e;
 		}
 	}
