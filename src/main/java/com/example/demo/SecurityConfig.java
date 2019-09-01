@@ -64,6 +64,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.antMatchers("/js/**").permitAll()
 			.antMatchers("/login").permitAll()
 			.antMatchers("/signup").permitAll()
+			.antMatchers("/admin").hasAuthority("ROLE_ADMIN")
 			.anyRequest().authenticated(); /** それ以外は直リンクNG**/
 
 		// 一時的にcsrf対策を無効化する場合
