@@ -12,6 +12,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @EnableWebSecurity
 @Configuration
@@ -65,8 +66,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.antMatchers("/signup").permitAll()
 			.anyRequest().authenticated(); /** それ以外は直リンクNG**/
 
-		// FIXME 一時的にcsrf対策を無効化
-		http.csrf().disable();
+		// 一時的にcsrf対策を無効化する場合
+		// http.csrf().disable();
 
 		/** 認証が必要なページからリダイレクトされてログインページきたとしても、必ずhomeに飛ばす**/
 		boolean alwaysUse = true;
@@ -78,6 +79,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.usernameParameter("userId")
 			.passwordParameter("password")
 			.defaultSuccessUrl("/home", alwaysUse);
+			
+		http.logout()
+			.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+			.logoutUrl("/logout")
+			.logoutSuccessUrl("/login");
 			
 	}
 	
