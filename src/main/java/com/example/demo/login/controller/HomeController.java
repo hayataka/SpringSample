@@ -10,6 +10,8 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
@@ -39,8 +41,18 @@ public class HomeController {
 		return radio;
 	}
 
+	
+	
 	@GetMapping("/home")
 	public String getHome(Model model) {
+		
+		//FIXME あとでstatic依存から変更する
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		log.debug("ユーザー：{}", auth.getName());
+		auth.getAuthorities().stream().forEach(x -> log.debug("権限：{}", x));
+		
+		
+		
 		// ユーザー一覧表示用途
 		model.addAttribute("contents", "login/home :: home_contents");
 

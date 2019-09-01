@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
 <meta charset="UTF-8"></meta>
 </head>
 <body>
+
 	<div th:fragment="home_contents">
 		<div class="page-header">
 			<h1>ホーム</h1>
+      <p>ようこそ<span sec:authentication="principal.username"></span>さん</p>
 		</div>
 	</div>
 </body>
