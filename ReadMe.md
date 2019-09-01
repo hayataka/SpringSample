@@ -4,6 +4,7 @@
 
 application.propertiesに記載していたうち、下記は書籍と異なっていた
 spring.datasource.initialization-mode=always
+　（alwaysではなく、embededで良いかもしれない）
 
 thymeleafとspringを連動させる箇所で、新規プロジェクトで作成したSpringが５を
 使用しているので、 連動するjarも４->５に変更する必要があった
