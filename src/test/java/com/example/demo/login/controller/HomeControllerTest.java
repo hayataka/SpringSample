@@ -30,7 +30,7 @@ public class HomeControllerTest {
 	private UserService service;
 
 	@Test
-	@WithMockUser
+	@WithMockUser(username = "satou", roles = {"ADMIN"})
 	public void test() throws Exception {
 		
 		when(service.count()).thenReturn(10);

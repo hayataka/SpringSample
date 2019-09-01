@@ -9,6 +9,11 @@ thymeleafとspringを連動させる箇所で、新規プロジェクトで作�
 使用しているので、 連動するjarも４->５に変更する必要があった
 （そうしないと、sec:authorizeなどが htmlでそのまま表示されていた）
 
+画面テストでの設定で、ユーザを特定する箇所
+ 書籍　： @WithMockUser(username = "satou", roles = {"ROLE_ADMIN"})
+ 修正後： @WithMockUser(username = "satou", roles = {"ADMIN"})
+
+
 課題：４−４、ライフサイクルの違いの件、どう対応するようにSpringでは推奨しているか
 
 画面一覧
