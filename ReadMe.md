@@ -5,6 +5,10 @@
 application.propertiesに記載していたうち、下記は書籍と異なっていた
 spring.datasource.initialization-mode=always
 
+thymeleafとspringを連動させる箇所で、新規プロジェクトで作成したSpringが５を
+使用しているので、 連動するjarも４->５に変更する必要があった
+（そうしないと、sec:authorizeなどが htmlでそのまま表示されていた）
+
 課題：４−４、ライフサイクルの違いの件、どう対応するようにSpringでは推奨しているか
 
 画面一覧
