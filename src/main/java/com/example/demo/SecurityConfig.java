@@ -13,6 +13,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.security.web.util.matcher.RequestMatcher;
 
 @EnableWebSecurity
 @Configuration
@@ -64,11 +65,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.antMatchers("/js/**").permitAll()
 			.antMatchers("/login").permitAll()
 			.antMatchers("/signup").permitAll()
+			.antMatchers("/rest/**").permitAll()
 			.antMatchers("/admin").hasAuthority("ROLE_ADMIN")
 			.anyRequest().authenticated(); /** それ以外は直リンクNG**/
 
 		// 一時的にcsrf対策を無効化する場合
 		// http.csrf().disable();
+		// RESTのみCSRFを無効
+		RequestMatcher csrfMatcher = new RestMatcher("/rest/**");
+		http.csrf().requireCsrfProtectionMatcher(csrfMatcher);
 
 		/** 認証が必要なページからリダイレクトされてログインページきたとしても、必ずhomeに飛ばす**/
 		boolean alwaysUse = true;
