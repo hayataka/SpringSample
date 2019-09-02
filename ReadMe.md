@@ -25,16 +25,24 @@ thymeleafとspringを連動させる箇所で、新規プロジェクトで作�
 　ユーザー詳細
 　管理者権限専用
 
-使用しているライブラリ・FWについて
+(主な）使用しているライブラリ・FWについて
 
-| name  | age | gender    | money  |
-|-------|:---:|-----------|-------:|
-| rhio  | 384 | robot     | $3,000 |
-| haroo | .3  | bird      | $430   |
-| jedi  | ?   | undefined | $0     |
+| カテゴリ  | 名前 | バージョン    | 公式サイト  | 参考度合い  |
+|-------|:---:|-----------|-------:|-------:|
+| ログ  | slf4j-api |1.7.26 | https://www.slf4j.org/  | △ |
+| ログ | logback  | 1.2.3  | https://logback.qos.ch/manual/index_ja.html  | ◯ |
+| 画面  | bootstrap   | 3.3.7.1 | https://getbootstrap.com/docs/3.3/css/  | x |
+| 画面  | jquery   | 1.11.1 | https://jquery.com/  | x |
+| 入力チェック  | hibernate-validator   | 6.0.17.Final | https://hibernate.org/validator/     | x |
+| 画面（サーバ）  | thymeleaf-extras-springsecurity5   | 3.0.4 |   | x |
+| 画面（サーバ）  | thymeleaf-spring5   | 3.0.11 |   | x |
+| 画面（サーバ）  | thymeleaf   | 3.0.11 |  https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf_ja.html  | ◯ |
+| Spring  | spring-web   | 5.1.9 |   | x |
+| DB  | h2   | 1.4.199 | https://www.h2database.com/html/main.html     | x |
+| DB  | mybatis   | 3.4.6 |  http://www.mybatis.org/mybatis-3/ja/index.html    | ◯ |
+| その他  | lombok   | 1.18.8 | https://projectlombok.org/  | △ |
 
-logback 1.2.3
-slf4j-api
+Springは多すぎるのでほぼ全て割愛
 
 
 
